@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body{
+            padding:0px;
+            margin: 0px;
+            background-color: beige;
+        }
+        .first{
+            padding: 10px;
+            container-type: flex;
+            border: 5px solid black;
+            max-width: fit-content;
+            background-color: rgb(198, 212, 237);
+            margin-left: 530px;
+        }
+        input[type="submit"]{
+            background-color: blue;
+            color: white;
+            margin-left: 150px;
+        }
+        input[type="submit"]:hover{
+            scale: 1.1;
+            color: black;
+            background-color: rgb(205, 189, 241);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Student Feedback Form</h2>
+    <div class="first" display: container align:center>
+        <form name="feedback-form">
+            <label for="fname">Full name:</label><br />
+            <input type="text" id="fname" name="fullname" placeholder="Your name" /><br /><br />
+            <label for="email">E-mail:</label><br />
+            <input type="email" id="email" name="emailID" placeholder="Your email"/><br /><br />
+            <label for="usn">University Seat Number:</label><br />
+            <input type="text" id="usn" name="USN" placeholder="Your USN" /><br /><br />
+            <label for="branch">Branch:</label><br />
+            <input type="radio" name="branch" value="CS">Computer Science<br/>
+            <input type="radio" name="branch" value="IS">Information Science<br/>
+            <input type="radio" name="branch" value="CSBS">Computer Science & Business Systems<br/>
+            <input type="radio" name="branch" value="AI">Artificial Intelligence<br/>
+            <input type="radio" name="branch" value="NCB">Non-Circuit Branches<br/><br />
+            <label for="sem">Semester:</label><br />
+            <select name="semester">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select><br /><br />
+            <label for="feedback">Feedback:</label><br />
+            <textarea style="resize: vertical;" name="feedback" rows="6" cols="50" placeholder="Your feedback and suggestions"></textarea><br /><br />
+            <label>Confirmation:</label><br />
+            <input type="checkbox" name="req" />
+            <label for="req">I have verified the details</label><br />
+            <input type="checkbox"checked name="req" />
+            <label for="req">Send me a copy of my responses</label><br /><br />
+            <input type="submit" value="submit" />    
+        </form>
+    </div>
+    <br />
+    <footer style="background-color: rgb(99, 96, 96); color: white; margin-left: 500px; margin-right: 490px;">
+        <marquee style="direction: ltr;">&copy;JSS Science and Technology University</marquee>
+    </footer>
+</body>
+</html>

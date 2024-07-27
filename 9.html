@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            background-color: rgb(109, 115, 116);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* form {
+            display: block;
+        } */
+        .bg{
+            display:block;
+            width:auto;
+            background-color: rgb(246, 139, 139);
+            border-width:thick;
+            box-shadow: rgb(109, 115, 116);
+        }
+    </style>
+    <script>
+       function validateForm() {
+            var userId = document.getElementById("userId").value;
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+
+            if (userId.length < 5 || userId.length > 12) {
+                alert('Invalid User');
+                return;
+            }
+
+            if (name.length < 10) {
+                alert('Invalid Name');
+                return;            
+            }
+            for (var i = 0; i < name.length; i++) {
+                var charCode = name.charCodeAt(i);
+                if (!(charCode >= 65 && charCode <= 90) && !(charCode >= 97 && charCode <= 122) && charCode !== 32){                      
+                    alert('Invalid Name');
+                    return; 
+                }
+            }
+
+            // Validate Password
+            if (password.length < 8) {
+                alert('Invalid Password');
+                return; 
+            }
+            var hasUppercase = false;
+            var hasLowercase = false;
+            var hasNumber = false;
+            var hasSpecialChar = false;
+            for (var i = 0; i < password.length; i++) {
+                var charCode = password.charCodeAt(i);
+                if (charCode >= 65 && charCode <= 90) hasUppercase = true;      // A-Z
+                else if (charCode >= 97 && charCode <= 122) hasLowercase = true; // a-z
+                else if (charCode >= 48 && charCode <= 57) hasNumber = true;     // 0-9
+                else hasSpecialChar = true;                                      // Special characters
+            }
+            if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar) {
+                alert('Invalid Password');
+                return;            
+            }
+
+            // Validate Email
+            var atPosition = email.indexOf("@");
+            var dotPosition = email.lastIndexOf(".");
+            if (atPosition < 1 || dotPosition < atPosition + 2 || dotPosition + 2 >= email.length) {
+                alert('Invalid Email');
+                return;             
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Registration Page</h1>
+    <div class="bg">
+        <form name="registrationForm" align="center">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId"><br><br><br><br />
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br><br><br />
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password"><br><br><br><br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br><br><br />
+            <button onclick="validateForm()">Submit</button>
+        </form>
+    </div>    
+    <br>
+</body>
+
+</html>
